@@ -4,12 +4,16 @@ class Model_Class:
         self.model = model
         self.params = params
         
+        self.model_name = "".join(char for char in model.__repr__() if char.isalpha())
+        
     def get_params(self):
         return self.params
         
     def get_model(self):
         return self.model
     
+    def name(self):
+        return self.model_name
     
     #Model agnostic methods for predicting and fitting
     def predict(self,X_test):
