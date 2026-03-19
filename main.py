@@ -2,6 +2,7 @@ from auto_tester import *
 from model_class import *
 import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report
 
 if __name__ == '__main__':
@@ -13,14 +14,18 @@ if __name__ == '__main__':
     
     test = Testing_Environment(df)
     
+    model = Model_Class(LogisticRegression(),{})
+    
     test.auto_set_cpu_cores()
+    
+    test.parallel_layer_distribution(model)
     
     test.set_X('gender')
     test.set_y('gender')
-    
-    model = Model_Class(DecisionTreeClassifier(),{'max_depth': [10, 20],'min_samples_split': [2, 5],})
 
     output = test.train_test(model,log_results=True)
+    
+    
     
     
     

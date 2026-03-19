@@ -23,8 +23,7 @@ class Testing_Environment:
         self.X = None
         self.y = None
         self.parallel_layers = [1,1,1]
-        self.dataframe_file_size = 0
-    
+        self.dataframe_file_size = 1
         
     #Setters
     def set_hp_type(self,hp_type):
@@ -147,6 +146,3 @@ class Testing_Environment:
             self.log_results(y_test, y_pred,model.name())
 
         return hp_model
-        
-          
-

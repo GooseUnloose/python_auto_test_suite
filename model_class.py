@@ -5,6 +5,8 @@ class Model_Class:
         self.params = params
         
         self.model_name = "".join(char for char in model.__repr__() if char.isalpha())
+        self.pipeline_transformers = [self.name()]
+        
         
     def get_params(self):
         return self.params
